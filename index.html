@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrea Zoleo — Ripetizioni e Formazione AI</title>
+    <meta name="description" content="Ripetizioni di matematica, fisica, informatica e intelligenza artificiale. Laurea in Fisica Teorica con Lode, 20 anni come Principal Architect. Online e zona Treviso.">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+            color: #1a1a2e;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+        h1, h2, h3 { line-height: 1.2; }
+        .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+        section { padding: 64px 0; }
+        section:nth-child(even) { background: #f8fafc; }
+
+        /* Hero */
+        .hero {
+            background: #1a2332;
+            color: white;
+            padding: 80px 0 64px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .hero .tagline {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+        .hero .credentials {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+        .btn-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .btn-wa:hover { background: #1fb855; transform: translateY(-1px); }
+        .btn-wa svg { width: 24px; height: 24px; fill: white; flex-shrink: 0; }
+
+        /* Section headers */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: #1a2332;
+        }
+
+        /* Chi sono */
+        .about p {
+            font-size: 1.05rem;
+            color: #374151;
+            margin-bottom: 16px;
+        }
+        .about .highlight {
+            font-style: italic;
+            color: #1a2332;
+            font-weight: 500;
+            border-left: 3px solid #2d6a9f;
+            padding-left: 16px;
+            margin: 24px 0;
+        }
+
+        /* Materie */
+        .materie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+        }
+        .materia-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px 16px;
+            text-align: center;
+        }
+        .materia-card .icon { font-size: 2rem; margin-bottom: 8px; }
+        .materia-card h3 { font-size: 1rem; font-weight: 600; color: #1a2332; }
+        .materia-card p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+
+        /* Come lavoro */
+        .steps { display: flex; flex-direction: column; gap: 24px; }
+        .step { display: flex; gap: 20px; align-items: flex-start; }
+        .step-num {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: #2d6a9f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .step-content h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+        .step-content p { font-size: 0.95rem; color: #374151; }
+
+        /* Tariffe */
+        .tariffe-table { width: 100%; border-collapse: collapse; font-size: 1rem; }
+        .tariffe-table th {
+            text-align: left;
+            padding: 12px 16px;
+            background: #1a2332;
+            color: white;
+            font-weight: 600;
+        }
+        .tariffe-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #374151;
+        }
+        .tariffe-table tr:last-child td { border-bottom: none; }
+        .tariffe-table tr:nth-child(even) td { background: #f8fafc; }
+        .tariffe-table .price { font-weight: 700; color: #1a2332; }
+        .tariffe-note { font-size: 0.85rem; color: #64748b; margin-top: 12px; }
+
+        /* Testimonianze */
+        .testimonials { display: flex; flex-direction: column; gap: 20px; }
+        .testimonial {
+            background: white;
+            border-left: 4px solid #2d6a9f;
+            padding: 20px 24px;
+            border-radius: 0 8px 8px 0;
+        }
+        .testimonial p { font-size: 1rem; color: #374151; font-style: italic; margin-bottom: 8px; }
+        .testimonial .author { font-size: 0.85rem; font-weight: 600; color: #64748b; }
+
+        /* Contatti */
+        .contact { text-align: center; background: #1a2332 !important; color: white; }
+        .contact .section-title { color: white; }
+        .contact p { color: #94a3b8; margin-bottom: 32px; font-size: 1rem; }
+        .availability {
+            display: inline-flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 24px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        .availability span::before { content: "✓ "; color: #25d366; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            background: #0f172a;
+        }
+
+        @media (max-width: 480px) {
+            .step { flex-direction: column; gap: 8px; }
+            .materie-grid { grid-template-columns: repeat(2, 1fr); }
+            .tariffe-table { font-size: 0.85rem; }
+            .tariffe-table th, .tariffe-table td { padding: 10px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="container">
+        <h1>Andrea Zoleo</h1>
+        <p class="tagline">Ripetizioni di matematica, fisica, informatica e intelligenza artificiale</p>
+        <p class="credentials">Laurea in Fisica Teorica con Lode · UniPD &nbsp;·&nbsp; Principal Architect &nbsp;·&nbsp; 20 anni nel settore tech</p>
+        <a href="https://wa.me/39NUMEROWA?text=Ciao%20Andrea%2C%20vorrei%20informazioni%20sulle%20ripetizioni" class="btn-wa">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Contattami su WhatsApp
+        </a>
+    </div>
+</section>
+
+<section>
+    <div class="container about">
+        <h2 class="section-title">Chi sono</h2>
+        <p>Ho scoperto la programmazione a 12 anni. Dopo la laurea in Fisica Teorica con Lode all'Università di Padova, ho costruito vent'anni di carriera come Principal Architect in una tech company internazionale — embedded systems, cloud, intelligenza artificiale.</p>
+        <p class="highlight">Non sono un tutor che studia il giorno prima. Sono un professionista che conosce le materie perché le usa. Questa differenza si sente.</p>
+        <p>Da vent'anni faccio una cosa ogni giorno: spiego concetti complessi e li rendo comprensibili — a team di ingegneri, clienti, manager. Nelle lezioni private è esattamente lo stesso processo.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2 class="section-title">Materie</h2>
+        <div class="materie-grid">
+            <div class="materia-card">
+                <div class="icon">∑</div>
+                <h3>Matematica</h3>
+                <p>Medie, liceo, università</p>
+            </div>
+            <div class="materia-card">
+                <div class="icon">⚛︎</div>
+                <h3>Fisica</h3>
+                <p>Medie, liceo, università</p>
+            </div>
+            <div class="materia-card">
+                <div class="icon">&lt;/&gt;</div>
+                <h3>Informatica</h3>
+                <p>Medie, liceo, università</p>
+            </div>
+            <div class="materia-card">
+                <div class="icon">🤖</div>
+                <h3>Intelligenza Artificiale</h3>
+                <p>Studenti e professori</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2 class="section-title">Come lavoro</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Capisco dove sei bloccato</h3>
+                    <p>Prima di tutto identifico le difficoltà specifiche e le cause — senza dare nulla per scontato.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Ricostruiamo le basi</h3>
+                    <p>Partiamo dai fondamenti e procediamo con esercizi di difficoltà crescente fino alla padronanza dell'argomento.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Il computer come strumento vivo</h3>
+                    <p>Simulazioni, visualizzazioni, software matematici — non solo la lavagna. Funziona anche nelle lezioni online.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2 class="section-title">Tariffe</h2>
+        <table class="tariffe-table">
+            <thead>
+                <tr>
+                    <th>Servizio</th>
+                    <th>Target</th>
+                    <th>Tariffa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Matematica · Fisica · Informatica</td>
+                    <td>Scuola media e superiore</td>
+                    <td class="price">€38/h</td>
+                </tr>
+                <tr>
+                    <td>Matematica · Fisica · Informatica</td>
+                    <td>Università</td>
+                    <td class="price">€50/h</td>
+                </tr>
+                <tr>
+                    <td>Intelligenza Artificiale</td>
+                    <td>Studenti e professionisti</td>
+                    <td class="price">€50/h</td>
+                </tr>
+                <tr>
+                    <td>Formazione AI per docenti</td>
+                    <td>Professori e istituti scolastici</td>
+                    <td class="price">Su richiesta</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="tariffe-note">Pagamento diretto, anche in contanti. Prima lezione conoscitiva senza impegno.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2 class="section-title">Cosa dicono gli studenti</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>"Andrea è un bravissimo insegnante con una cultura scientifica che spazia in ogni ambito della matematica e della fisica. Le sue spiegazioni sono sempre chiare e appassionate, e il suo modo di insegnare trasmette agli altri passione e interesse per l'argomento trattato. Consigliatissimo!"</p>
+                <span class="author">— Matteo, professionista</span>
+            </div>
+            <div class="testimonial">
+                <p>"Ha una predisposizione per l'insegnamento, oltre che una cultura e preparazione in matematica, algebra, fisica e informatica davvero completa e profonda. Lo consiglierei a chiunque."</p>
+                <span class="author">— Emax, professionista</span>
+            </div>
+            <div class="testimonial">
+                <p>"Avevo necessità di ripetizioni di fisica e matematica: come professore è molto disponibile, semplice e coinvolgente nelle spiegazioni. Grazie a lui ho superato l'anno scolastico."</p>
+                <span class="author">— Leonardo, studente</span>
+            </div>
+            <div class="testimonial">
+                <p>"Mi sono trovata molto bene, è chiaro nelle spiegazioni e molto disponibile. Finalmente sono riuscita a prendere la sufficienza in matematica e ho recuperato il debito!"</p>
+                <span class="author">— Anti, studentessa</span>
+            </div>
+            <div class="testimonial">
+                <p>"Molto gentile e disponibile, un professore che tutti vorremo! Mi ha aiutato molto a capire e spiega in modo molto chiaro. Grazie a lui ho imparato di più. Consigliatissimo!"</p>
+                <span class="author">— Anthonys, studente</span>
+            </div>
+            <div class="testimonial">
+                <p>"Insegnante molto preparato che cerca, con simpatia, di far piacere la matematica senza trascurare alcun dettaglio."</p>
+                <span class="author">— Gregorio, studente</span>
+            </div>
+            <div class="testimonial">
+                <p>"Con Andrea abbiamo rivisto le funzioni, mi sono trovata bene: è stato molto chiaro, preciso e paziente."</p>
+                <span class="author">— Giulia, studentessa</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact">
+    <div class="container">
+        <h2 class="section-title">Prenota una lezione</h2>
+        <p>Prima lezione conoscitiva senza impegno.<br>Rispondo su WhatsApp entro poche ore.</p>
+        <a href="https://wa.me/39NUMEROWA?text=Ciao%20Andrea%2C%20vorrei%20informazioni%20sulle%20ripetizioni" class="btn-wa">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Scrivimi su WhatsApp
+        </a>
+        <div class="availability">
+            <span>Online (tutta Italia)</span>
+            <span>Lun–Ven 18:00–20:00</span>
+            <span>Weekend disponibile</span>
+            <span>In presenza (zona Treviso)</span>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Andrea Zoleo &nbsp;·&nbsp; Preganziol (TV)</p>
+</footer>
+
+</body>
+</html>
